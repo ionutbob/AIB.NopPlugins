@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Payment methods",
+  "FriendlyName": "ING WebPay",
+  "SystemName": "Payments.IngWebPay",
+  "Version": "1.0",
+  "SupportedVersions": [ "4.20" ],
+  "Author": "AIB Software",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Payments.IngWebPay.dll",
+  "Description": "This plugin enables customers to pay with VISA, Mastercard and Maestro cards via ING WebPay service"
+}
