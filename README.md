@@ -1,0 +1,2 @@
+# AIB.NopPlugins
+NopCommerce plugins
