@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "Block Malicious Requests",
+  "SystemName": "Misc.BlockMaliciousRequests",
+  "Version": "1",
+  "SupportedVersions": [ "4.20" ],
+  "Author": "AIB Software",
+  "DisplayOrder": 7,
+  "FileName": "Nop.Plugin.Misc.BlockMaliciousRequests.dll",
+  "Description": "This plugin enables site admin to setup filters for malicious requests"
+}

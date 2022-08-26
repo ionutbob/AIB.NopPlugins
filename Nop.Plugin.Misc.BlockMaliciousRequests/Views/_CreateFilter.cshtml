@@ -1,0 +1,71 @@
+﻿@model Nop.Plugin.Misc.BlockMaliciousRequests.Models.MaliciousRequestFilterModel
+@using Nop.Web.Framework.Extensions
+
+<div asp-validation-summary="All"></div>
+<input asp-for="Id" type="hidden" />
+
+@if (ViewBag.RefreshPage == true)
+{
+<script>
+    try {
+         window.opener.document.querySelector("button[aria-controls='@(Context.Request.Query["btn1attribute"])']").click();
+         window.opener.document.querySelector("button[aria-controls='@(Context.Request.Query["btn2attribute"])']").click();
+         window.opener.document.querySelector("button[aria-controls='@(Context.Request.Query["btn3attribute"])']").click();
+        }
+    catch (e){}
+    window.close();
+</script>
+}
+
+<div class="panel-group">
+    <div class="panel panel-default panel-popup">
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <nop-label asp-for="IsUrlRequestFilter" />
+                </div>
+                <div class="col-sm-9">
+                    <nop-editor asp-for="IsUrlRequestFilter" />
+                    <span asp-validation-for="IsUrlRequestFilter"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <nop-label asp-for="IsCountryFilter" />
+                </div>
+                <div class="col-sm-9">
+                    <nop-editor asp-for="IsCountryFilter" />
+                    <span asp-validation-for="IsCountryFilter"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <nop-label asp-for="IsIpFilter" />
+                </div>
+                <div class="col-sm-9">
+                    <nop-editor asp-for="IsIpFilter" />
+                    <span asp-validation-for="IsIpFilter"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <nop-label asp-for="Value" />
+                </div>
+                <div class="col-sm-9">
+                    <nop-editor asp-for="Value" />
+                    <span asp-validation-for="Value"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <nop-label asp-for="BlockedUntil" />
+                </div>
+                <div class="col-sm-9">
+                    <nop-editor asp-for="BlockedUntil" />
+                    <span asp-validation-for="BlockedUntil"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nop-alert asp-alert-id="getStatesByCountryIdAlert" asp-alert-message="@T("Admin.Common.Alert.States.Failed")" />

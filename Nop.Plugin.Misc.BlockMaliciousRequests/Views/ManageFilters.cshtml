@@ -1,0 +1,33 @@
+﻿@model Nop.Plugin.Misc.BlockMaliciousRequests.Models.FiltersConfigurationModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+
+
+<nop-alert asp-alert-id="saveModeAlert" asp-alert-message="@T("Admin.Common.Alert.Save.Error")" />
+
+<div class="col-md-9">
+    <button type="submit" id="btnAddNewRecord" class="btn btn-primary"
+            onclick="javascript:OpenWindow('@(Url.Action("AddFilterPopup", "BlockMaliciousRequests", new {selectorAttribute = "aria-controls", btn1attribute = "url-filters-grid", btn2attribute = "country-filters-grid", btn3attribute = "ip-filters-grid"}))', 600, 400, true);return false;">
+        @T("Plugins.Misc.BlockMaliciousRequests.AddFilter")
+    </button>
+    <input type="submit" id="btnRefresh" class="btn btn-default" style="display: none" />
+</div>
+
+<div class="col-md-9">
+    @T("Plugins.Misc.BlockMaliciousRequests.UrlFilters")
+</div>
+
+@await Html.PartialAsync("~/Plugins/Misc.BlockMaliciousRequests/Views/_UrlFiltersList.cshtml")
+
+<div class="col-md-9">
+    @T("Plugins.Misc.BlockMaliciousRequests.CountryFilters")
+</div>
+
+@await Html.PartialAsync("~/Plugins/Misc.BlockMaliciousRequests/Views/_CountryFiltersList.cshtml")
+
+<div class="col-md-9">
+    @T("Plugins.Misc.BlockMaliciousRequests.IpFilters")
+</div>
+
+@await Html.PartialAsync("~/Plugins/Misc.BlockMaliciousRequests/Views/_IpFiltersList.cshtml")

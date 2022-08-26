@@ -1,0 +1,11 @@
+﻿{
+  "Group": "Misc",
+  "FriendlyName": "Pdf Billing Extensions",
+  "SystemName": "Misc.PdfBillingExtensions",
+  "Version": "1",
+  "SupportedVersions": [ "4.20" ],
+  "Author": "AIB Software",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.PdfBillingExtensions.dll",
+  "Description": "This plugin enables site admin to set Billing information of the store"
+}

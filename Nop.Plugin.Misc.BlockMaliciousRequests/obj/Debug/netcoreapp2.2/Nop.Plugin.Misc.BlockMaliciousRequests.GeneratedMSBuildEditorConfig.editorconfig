@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = Nop.Plugin.Misc.BlockMaliciousRequests
+build_property.ProjectDir = C:\Proiecte\nopCommerce\nc4.0\nopCommerce-release-4.20\src\Plugins\nopplugins4.2\Nop.Plugin.Misc.BlockMaliciousRequests\

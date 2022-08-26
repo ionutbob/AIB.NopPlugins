@@ -1,0 +1,106 @@
+﻿@model Nop.Plugin.Misc.PdfBillingExtensions.Models.PdfAdditionalSettingsConfigModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+@using Nop.Plugin.Misc.PdfBillingExtensions.Models
+
+@await Component.InvokeAsync("StoreScopeConfiguration")
+<form asp-controller="PdfExtendedSettings" asp-action="Configure" method="post">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingCompany_OverrideForStore" asp-input="BillingCompany" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingCompany" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingCompany" />
+                        <span asp-validation-for="BillingCompany"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingCompanyInfo_OverrideForStore" asp-input="BillingCompanyInfo" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingCompanyInfo" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingCompanyInfo" />
+                        <span asp-validation-for="BillingCompanyInfo"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingCompanyCode_OverrideForStore" asp-input="BillingCompanyCode" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingCompanyCode" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingCompanyCode" />
+                        <span asp-validation-for="BillingCompanyCode"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingCompanyAddress1_OverrideForStore" asp-input="BillingCompanyAddress1" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingCompanyAddress1" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingCompanyAddress1" />
+                        <span asp-validation-for="BillingCompanyAddress1"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingCompanyAddress2_OverrideForStore" asp-input="BillingCompanyAddress2" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingCompanyAddress2" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingCompanyAddress2" />
+                        <span asp-validation-for="BillingCompanyAddress2"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingSerialNumber_OverrideForStore" asp-input="BillingSerialNumber" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingSerialNumber" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingSerialNumber" />
+                        <span asp-validation-for="BillingSerialNumber"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingDelegateName_OverrideForStore" asp-input="BillingDelegateName" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingDelegateName" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingDelegateName" />
+                        <span asp-validation-for="BillingDelegateName"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BillingDelegateId_OverrideForStore" asp-input="BillingDelegateId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BillingDelegateId" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BillingDelegateId" />
+                        <span asp-validation-for="BillingDelegateId"></span>
+                    </div>
+                </div>
+                <div class="col-md-9" id="pdf-signature-picture">
+                    <nop-override-store-checkbox asp-for="SignaturePictureId_OverrideForStore" asp-input="SignaturePictureId" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                    <nop-editor asp-for="SignaturePictureId" />
+                    <span asp-validation-for="SignaturePictureId"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3">
+                        <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

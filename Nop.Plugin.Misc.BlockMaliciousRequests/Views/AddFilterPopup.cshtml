@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_AdminPopupLayout";
+}
+@model Nop.Plugin.Misc.BlockMaliciousRequests.Models.MaliciousRequestFilterModel
+
+    <form asp-controller="BlockMaliciousRequests" asp-action="AddFilterPopup"
+          asp-route-btn1attribute="@Context.Request.Query["btn1attribute"]"
+          asp-route-btn2attribute="@Context.Request.Query["btn2attribute"]"
+          asp-route-btn3attribute="@Context.Request.Query["btn3attribute"]"
+          asp-route-selectorAttribute="@Context.Request.Query["selectorAttribute"]">
+        <div class="content-header clearfix">
+            <h1 class="pull-left">
+                @T("Admin.Common.AddNew")
+            </h1>
+            <div class="pull-right">
+                <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="form-horizontal">
+                @await Html.PartialAsync("~/Plugins/Misc.BlockMaliciousRequests/Views/_CreateFilter.cshtml", Model)
+            </div>
+        </div>
+    </form>

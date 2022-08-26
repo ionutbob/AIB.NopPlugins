@@ -1,0 +1,65 @@
+﻿@model Nop.Plugin.Misc.BlockMaliciousRequests.Models.LogsConfigurationModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+@using Nop.Plugin.Misc.BlockMaliciousRequests.Models
+@using Nop.Web.Framework.Models.DataTables
+
+<nop-alert asp-alert-id="saveModeAlert" asp-alert-message="@T("Admin.Common.Alert.Save.Error")" />
+
+<div class="col-md-9">
+    @T("Plugins.Misc.BlockMaliciousRequests.RequestsLogs")
+</div>
+
+<div class="panel-group basic-setting">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            @await Html.PartialAsync("Table", new DataTablesModel
+       {
+           Name = "requests-logs-grid",
+           UrlRead = new DataUrl("GetLogs", "BlockMaliciousRequests", null),
+           Length = Model.PageSize,
+           LengthMenu = Model.AvailablePageSizes,
+           ColumnCollection = new List<ColumnProperty>
+                {
+                    new ColumnProperty(nameof(RequestLogModel.Ip))
+                    {
+                        Title = T("Plugins.Misc.BlockMaliciousRequests.Ip").Text,
+                        Width = "100",
+                        EditType = EditType.String
+                    },
+                    new ColumnProperty(nameof(RequestLogModel.Country))
+                    {
+                        Title = T("Plugins.Misc.BlockMaliciousRequests.Country").Text,
+                        Width = "200",
+                        EditType = EditType.String
+                    },
+                    new ColumnProperty(nameof(RequestLogModel.RequestedUrl))
+                    {
+                        Title = T("Plugins.Misc.BlockMaliciousRequests.RequestedUrl").Text,
+                        Width = "200",
+                        EditType = EditType.String
+                    },
+                    new ColumnProperty(nameof(RequestLogModel.RequestTime))
+                    {
+                        Title = T("Plugins.Misc.BlockMaliciousRequests.RequestTime").Text,
+                        Width = "200",
+                        EditType = EditType.String
+                    },
+                    new ColumnProperty(nameof(RequestLogModel.RequestDuration))
+                    {
+                        Title = T("Plugins.Misc.BlockMaliciousRequests.RequestDuration").Text,
+                        Width = "200",
+                        EditType = EditType.String
+                    },
+                    new ColumnProperty(nameof(RequestLogModel.ResponseStatus))
+                    {
+                        Title = T("Plugins.Misc.BlockMaliciousRequests.ResponseStatus").Text,
+                        Width = "50",
+                        EditType = EditType.String
+                    }
+                }
+       })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+﻿@model Nop.Plugin.Misc.BlockMaliciousRequests.Models.BlockMaliciousRequestsSettingsConfigModel
+@{
+    Layout = "_ConfigurePlugin";
+}
+@using Nop.Plugin.Misc.BlockMaliciousRequests.Models
+
+@await Component.InvokeAsync("StoreScopeConfiguration")
+<form asp-controller="BlockMaliciousRequests" asp-action="Configure" method="post">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="EnableRequestUrlFiltering_OverrideForStore" asp-input="EnableRequestUrlFiltering" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="EnableRequestUrlFiltering" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableRequestUrlFiltering" />
+                        <span asp-validation-for="EnableRequestUrlFiltering"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="EnableCountryFiltering_OverrideForStore" asp-input="EnableCountryFiltering" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="EnableCountryFiltering" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableCountryFiltering" />
+                        <span asp-validation-for="EnableCountryFiltering"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="EnableIpFiltering_OverrideForStore" asp-input="EnableIpFiltering" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="EnableIpFiltering" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableIpFiltering" />
+                        <span asp-validation-for="EnableIpFiltering"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="BlockBlankIpRequests_OverrideForStore" asp-input="BlockBlankIpRequests" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="BlockBlankIpRequests" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="BlockBlankIpRequests" />
+                        <span asp-validation-for="BlockBlankIpRequests"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="EnableDynamicRequestFiltering_OverrideForStore" asp-input="EnableDynamicRequestFiltering" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="EnableDynamicRequestFiltering" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="EnableDynamicRequestFiltering" />
+                        <span asp-validation-for="EnableDynamicRequestFiltering"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="MaximumNumberOfRequestsPerMinute_OverrideForStore" asp-input="MaximumNumberOfRequestsPerMinute" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="MaximumNumberOfRequestsPerMinute" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="MaximumNumberOfRequestsPerMinute" />
+                        <span asp-validation-for="MaximumNumberOfRequestsPerMinute"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <nop-override-store-checkbox asp-for="LogAllRequests_OverrideForStore" asp-input="LogAllRequests" asp-store-scope="@Model.ActiveStoreScopeConfiguration" />
+                        <nop-label asp-for="LogAllRequests" />
+                    </div>
+                    <div class="col-md-9">
+                        <nop-editor asp-for="LogAllRequests" />
+                        <span asp-validation-for="LogAllRequests"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-9 col-md-offset-3">
+                        <input type="submit" name="save" class="btn bg-blue" value="@T("Admin.Common.Save")" />
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="pull-right">
+                        <a asp-controller="BlockMaliciousRequests" asp-action="ConfigureFilters" class="btn bg-blue">
+                            <i class="fa"></i>
+                            @T("Plugins.Misc.BlockMaliciousRequests.ManageFilters")
+                        </a>
+                        <a asp-controller="BlockMaliciousRequests" asp-action="SeeLogs" class="btn bg-blue">
+                            <i class="fa"></i>
+                            @T("Plugins.Misc.BlockMaliciousRequests.SeeRequestsLogs")
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+</form>
